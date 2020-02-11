@@ -1,0 +1,35 @@
+LakeHuron
+
+
+huron <- data.frame(year = 1875:1972, level = as.vector(LakeHuron))
+
+ggplot(data=huron, aes(x=year)) + geom_area(aes(y=level))
+
+-------------------------------------------------------------------------------
+  
+p <- ggplot(data=huron, aes(x=year))
+
+p <- p + geom_area(aes(y=level))
+
+p + coord_cartesian(ylim=c(570, 590))
+
+-------------------------------------------------------------------------------
+  
+p <- ggplot(data=huron, aes(x=year))
+
+p <- p + geom_area(aes(y=level))
+
+p + coord_cartesian(ylim = c(min(huron$level)-2, max(huron$level)+2))
+
+-------------------------------------------------------------------------------
+  
+p <- ggplot(huron, aes(x=year))
+
+p + geom_ribbon(aes(ymin=min(level)-2, ymax=level+2))
+
+-------------------------------------------------------------------------------
+  
+p <- ggplot(huron, aes(x=year))
+
+p + geom_ribbon(aes(ymin=level-2, ymax=level+2), colour="blue")
+
